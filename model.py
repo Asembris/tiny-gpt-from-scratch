@@ -292,8 +292,13 @@ def read_text_file(text_blob):
         raise ValueError("text_blob must be non-empty")
     return text_blob
 
-# Step 35 - encode_corpus_to_int_array (not yet solved)
-# TODO: implement
+# Step 35 - encode_corpus_to_int_array
+def encode_corpus_to_int_array(text, stoi):
+    """Convert the corpus string into a 1D NumPy int64 array of token ids."""
+    # TODO: map every character in text through stoi and return as a 1D int64 array
+    res=encode_string(text,stoi)
+    res=np.asarray(res,dtype=int)
+    return res
 
 # Step 36 - pick_split_point (not yet solved)
 # TODO: implement
