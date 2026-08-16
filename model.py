@@ -642,8 +642,16 @@ def derive_dx_on_paper():
     # TODO: return a multi-line string with the derivation and shape check
     return 'Y = X @ W\ndL/dX = dY @ W.T\nshapes: X (B, In), W (In, Out), dY (B, Out) -> dL/dX (B, In)'
 
-# Step 76 - derive_linear_dw_on_paper (not yet solved)
-# TODO: implement
+# Step 76 - derive_linear_dw_on_paper
+def derive_linear_dw_on_paper():
+    """Return a string with the derivation of dL/dW for Y = X @ W."""
+    # TODO: return notes that include the final identity dL/dW = X.T @ dY
+    return (
+        "For Y = X @ W, let X have shape (N, D_in) and W have shape (D_in, D_out). "
+        "The upstream gradient dY has shape (N, D_out). "
+        "By the chain rule, contributions over the batch sum into the weight gradient. "
+        "Therefore dL/dW = X.T @ dY, with shape (D_in, D_out), matching W."
+    )
 
 # Step 77 - linear_backward_dx (not yet solved)
 # TODO: implement
