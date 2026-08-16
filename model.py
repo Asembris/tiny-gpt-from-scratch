@@ -668,8 +668,16 @@ def linear_backward_dw(dy, cache):
     res= x.T @ dy
     return res
 
-# Step 79 - bias_add_forward (not yet solved)
-# TODO: implement
+# Step 79 - bias_add_forward
+def bias_add_forward(x, b):
+    """Add bias vector b (D,) to every row of x (B, D).
+
+    Returns {'y': ndarray (B, D), 'cache': {'b_shape': tuple}}.
+    """
+    # TODO: add b to each row of x and cache b's shape for the backward pass
+    y=x+b
+    d={"y":y,"cache":{"b_shape":b.shape}}
+    return d
 
 # Step 80 - bias_add_backward_db (not yet solved)
 # TODO: implement
