@@ -901,8 +901,19 @@ def embedding_sum_backward(d_out):
     cache={"d_token_emb":d_out,"d_pos_emb":d_pos_emb}
     return cache
 
-# Step 99 - create_qkv_projections (not yet solved)
-# TODO: implement
+# Step 99 - create_qkv_projections
+def create_qkv_projections(d_model, d_head, scale=0.02):
+    # TODO: return a dict with 'Wq','Wk','Wv', each of shape (d_model, d_head)
+    Wq= make_2d_random(d_model, d_head,0)
+    Wq=scale_w_small(Wq, scale)
+
+    Wk= make_2d_random(d_model, d_head,1)
+    Wk=scale_w_small(Wk, scale)
+
+    Wv= make_2d_random(d_model, d_head,2)
+    Wv=scale_w_small(Wv, scale)
+    d={"Wq":Wq,"Wk":Wk,"Wv":Wv}
+    return d
 
 # Step 100 - compute_query (not yet solved)
 # TODO: implement
