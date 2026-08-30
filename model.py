@@ -924,8 +924,11 @@ def compute_query(x, w_q):
     res= x @ w_q
     return res
 
-# Step 101 - compute_key (not yet solved)
-# TODO: implement
+# Step 101 - compute_key
+def compute_key(x, w_k):
+    """Project x through Wk to get keys K of shape (B, T, d_head)."""
+    # TODO: project the (B, T, d_model) input through w_k to produce (B, T, d_head) keys.
+    return x @ w_k
 
 # Step 102 - compute_value (not yet solved)
 # TODO: implement
