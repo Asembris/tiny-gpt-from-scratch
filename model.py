@@ -955,8 +955,14 @@ def scale_attention_scores(scores, d_head):
     scale=np.sqrt(d_head)
     return scores/scale
 
-# Step 105 - build_causal_mask (not yet solved)
-# TODO: implement
+# Step 105 - build_causal_mask
+import numpy as np
+
+def build_causal_mask(seq_len):
+    """Return a (seq_len, seq_len) boolean lower-triangular mask."""
+    # TODO: build a (T, T) boolean mask where True marks allowed (query, key) pairs
+    causal_mask=np.tri(seq_len,seq_len,dtype=bool)
+    return causal_mask
 
 # Step 106 - apply_causal_mask (not yet solved)
 # TODO: implement
