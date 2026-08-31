@@ -942,7 +942,7 @@ def compute_attention_scores(q, k):
     """Return raw attention scores Q @ K^T with shape (B, T, T)."""
     # TODO: compute raw attention scores Q @ K^T per batch element
     B,T,d_head=q.shape
-    k_t=k_t = np.swapaxes(k,-1,-2)
+    k_t = np.swapaxes(k,-1,-2)
     att_scores=q @ k_t
     return att_scores
 
