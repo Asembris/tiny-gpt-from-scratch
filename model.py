@@ -1007,8 +1007,17 @@ def apply_output_projection(attn_out, w_o):
     res= attn_out @ w_o
     return res
 
-# Step 110 - output_projection_backward (not yet solved)
-# TODO: implement
+# Step 110 - output_projection_backward
+def output_projection_backward(d_proj, cache):
+    """Backprop through proj = attn_out @ w_o. Return {'d_attn_out', 'dw_o'}."""
+    # TODO: backprop through proj = attn_out @ w_o, return gradients for attn_out and w_o
+    w_o=cache["w_o"]
+    attn_out=cache["attn_out"]
+    d_attn_out= d_proj @ w_o.T
+    B,T,d_head=attn_out.shape
+    dw_o= attn_out.reshape(B*T,d_head).T @ d_proj.reshape(B*T,d_proj.shape[-1])
+    res={"dw_o":dw_o,"d_attn_out":d_attn_out}
+    return res
 
 # Step 111 - attention_value_backward (not yet solved)
 # TODO: implement
